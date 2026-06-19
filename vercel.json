@@ -1,13 +1,3 @@
 {
-  "buildCommand": "npm run build",
-  "outputDirectory": ".vercel/output",
-  "framework": null,
-  "rewrites": [
-    { "source": "/(.*)", "destination": "/api/server" }
-  ],
-  "functions": {
-    "api/server.js": {
-      "includeFiles": ".output/**"
-    }
-  }
+  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
 }
