@@ -21,14 +21,12 @@ const items = [
   { image: c1, name: "Sweater Bunny", price: "$46", tone: "green" as const },
 ];
 
-// Duplicar items para mejor efecto de loop infinito en desktop
 const extendedItems = [...items, ...items, ...items];
 
 export function Classics() {
   const [api, setApi] = useState<CarouselApi | null>(null);
   const autoplayRef = useRef(Autoplay({ delay: 4000, stopOnInteraction: true, stopOnMouseEnter: true }));
 
-  // Reiniciar autoplay cuando cambia la API
   useEffect(() => {
     if (api) {
       autoplayRef.current?.play();
@@ -72,17 +70,17 @@ export function Classics() {
       </div>
 
       <Reveal>
-        <Carousel 
-          opts={{ 
-            loop: true, 
+        <Carousel
+          opts={{
+            loop: true,
             skipSnaps: false,
             align: "start",
             containScroll: "trimSnaps",
             dragFree: false,
             slidesToScroll: 1,
-          }} 
-          plugins={[autoplayRef.current]} 
-          setApi={(a: CarouselApi) => setApi(a)} 
+          }}
+          plugins={[autoplayRef.current]}
+          setApi={(a: CarouselApi) => setApi(a)}
           className="px-6 lg:px-12"
         >
           <CarouselContent
